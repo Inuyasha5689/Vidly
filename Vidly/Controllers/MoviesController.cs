@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -13,14 +15,25 @@ namespace Vidly.Controllers
         public ActionResult Random()
         {
             var movie = new Movie() {Name = "Shrek!"};
+            var customers = new List<Customer>
+            {
+                new Customer{ Name = "Customer 1"}
+                new Customer{ Name = "Customer 2"}
+            };
+
+            var viewModel = new RandomMovieViewModel();
+            {
+                Movie = movie,
+                CustomErrorsSection = customers
+            };
 
 //            ViewData["Movie"] = movie;
 //            ViewBag.Movie
 
-            var viewResult = new ViewResult();
-            viewResult.ViewData.Model
+//            var viewResult = new ViewResult();
+//            viewResult.ViewData.Model
                 
-            return View(movie);
+            return View(viewModel);
 //            return new ViewResult();
 //            return Content("Hello World");
 //            return HttpNotFound();
