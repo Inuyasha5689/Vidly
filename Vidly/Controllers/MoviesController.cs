@@ -13,6 +13,12 @@ namespace Vidly.Controllers
         public ActionResult Random()
         {
             var movie = new Movie() {Name = "Shrek!"};
+
+//            ViewData["Movie"] = movie;
+//            ViewBag.Movie
+
+            var viewResult = new ViewResult();
+            viewResult.ViewData.Model
                 
             return View(movie);
 //            return new ViewResult();
@@ -43,11 +49,11 @@ namespace Vidly.Controllers
 //            return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
 //        }
 
-        [Route("movies/released/{year}/{month:regex(\\d{4}):range(1, 12)}")]
-        public ActionResult ByReleaseYear(int year, int month)
-        {
-            return Content(year + "/" + month);
-        }
+//        [Route("movies/released/{year}/{month:regex(\\d{4}):range(1, 12)}")]
+//        public ActionResult ByReleaseYear(int year, int month)
+//        {
+//            return Content(year + "/" + month);
+//        }
 
     }
 }
