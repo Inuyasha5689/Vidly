@@ -17,14 +17,14 @@ namespace Vidly.Controllers
             var movie = new Movie() {Name = "Shrek!"};
             var customers = new List<Customer>
             {
-                new Customer{ Name = "Customer 1"}
+                new Customer{ Name = "Customer 1"},
                 new Customer{ Name = "Customer 2"}
             };
 
-            var viewModel = new RandomMovieViewModel();
+            var viewModel = new RandomMovieViewModel
             {
                 Movie = movie,
-                CustomErrorsSection = customers
+                Customers = customers
             };
 
 //            ViewData["Movie"] = movie;
